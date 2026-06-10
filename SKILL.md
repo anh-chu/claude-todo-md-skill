@@ -15,28 +15,32 @@ code path pi uses). Reading is fine to do directly.
 
 ## Usage
 
-Run from the directory where the work is happening (file is auto-located: nearest
-`TODO.md` up the tree, else created at the git repo root):
+`todo.mjs` lives in this skill's own directory (the same directory as this
+SKILL.md). Run it with that path — `$SKILL_DIR/todo.mjs` below stands for that
+directory (e.g. `~/.claude/skills/todo-md/` for a global install, or
+`.claude/skills/todo-md/` for a project install). Run from the directory where the
+work is happening (the `TODO.md` is auto-located: nearest one up the tree, else
+created at the git repo root):
 
 ```bash
-node ~/.claude/skills/todo-md/todo.mjs <action> '<json-params>'
+node "$SKILL_DIR/todo.mjs" <action> '<json-params>'
 ```
 
 `<action>` is positional; the JSON object holds the rest of the params. Examples:
 
 ```bash
-node ~/.claude/skills/todo-md/todo.mjs list
-node ~/.claude/skills/todo-md/todo.mjs add '{"text":"publish the plugin","priority":"high"}'
-node ~/.claude/skills/todo-md/todo.mjs bulk_add '{"items":["write docs","record demo","publish"]}'
-node ~/.claude/skills/todo-md/todo.mjs add '{"text":"triage bug","section":"In Progress","index":1}'
-node ~/.claude/skills/todo-md/todo.mjs check '{"id":3}'
-node ~/.claude/skills/todo-md/todo.mjs focus_task '{"id":2}'
-node ~/.claude/skills/todo-md/todo.mjs set_priority '{"id":2,"priority":"high"}'
-node ~/.claude/skills/todo-md/todo.mjs append_note '{"id":2,"text":"publish after docs land"}'
-node ~/.claude/skills/todo-md/todo.mjs add_subtask '{"id":2,"text":"write README"}'
-node ~/.claude/skills/todo-md/todo.mjs check_subtask '{"id":2,"subtask":1}'
-node ~/.claude/skills/todo-md/todo.mjs move '{"id":3,"section":"In Progress"}'
-node ~/.claude/skills/todo-md/todo.mjs archive_done
+node "$SKILL_DIR/todo.mjs" list
+node "$SKILL_DIR/todo.mjs" add '{"text":"publish the plugin","priority":"high"}'
+node "$SKILL_DIR/todo.mjs" bulk_add '{"items":["write docs","record demo","publish"]}'
+node "$SKILL_DIR/todo.mjs" add '{"text":"triage bug","section":"In Progress","index":1}'
+node "$SKILL_DIR/todo.mjs" check '{"id":3}'
+node "$SKILL_DIR/todo.mjs" focus_task '{"id":2}'
+node "$SKILL_DIR/todo.mjs" set_priority '{"id":2,"priority":"high"}'
+node "$SKILL_DIR/todo.mjs" append_note '{"id":2,"text":"publish after docs land"}'
+node "$SKILL_DIR/todo.mjs" add_subtask '{"id":2,"text":"write README"}'
+node "$SKILL_DIR/todo.mjs" check_subtask '{"id":2,"subtask":1}'
+node "$SKILL_DIR/todo.mjs" move '{"id":3,"section":"In Progress"}'
+node "$SKILL_DIR/todo.mjs" archive_done
 ```
 
 Output ends with `[path: ... | changed: ... | written: ...]` so you can confirm the

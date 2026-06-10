@@ -17,7 +17,14 @@ other's formatting. It does this by driving all mutations through pi's own engin
 
 ## Install
 
-Clone into your Claude Code skills directory:
+With the [`skills`](https://github.com/vercel-labs/skills) CLI (installs `SKILL.md`
+and the `todo.mjs` helper together):
+
+```bash
+npx skills add anh-chu/claude-todo-md-skill -g -a claude-code
+```
+
+Or clone directly into your Claude Code skills directory:
 
 ```bash
 git clone https://github.com/anh-chu/claude-todo-md-skill.git ~/.claude/skills/todo-md
